@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'twitter',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +123,5 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'twitter:index'
 LOGIN_URL = 'login'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

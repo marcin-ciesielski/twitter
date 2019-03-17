@@ -8,7 +8,7 @@ TWITTER_MAXIMUM_TWEET_LENGTH = 280
 
 class Tweet(models.Model):
     content = models.CharField(max_length=TWITTER_MAXIMUM_TWEET_LENGTH)
-    creation_date = models.DateField(default=datetime.date.today)
+    creation_date = models.DateTimeField(default=datetime.date.today)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):

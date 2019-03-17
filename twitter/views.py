@@ -10,18 +10,17 @@ from twitter import forms
 from twitter.models import Tweet
 
 
-# class AllTwiteerView(ListView):
-#     template_name = 'twitter/index.html'
-#     context_object_name = 'tweets'
+class TweetListView(ListView):
+    queryset = Tweet.objects.all().order_by('creation_date')
+    template_name = 'twitter/index.html'
+    #context_object_name = 'tweets'
+
+
+# class TweetListView(View):
 #
-#     def get_queryset(self):
-#         return Tweet.objects.all().order_by('creation_date')
-
-class TweetListView(View):
-
-    def get(self, request):
-        tweets = Tweet.objects.all().order_by('-creation_date')
-        return render(request, 'twitter/index.html', {'tweets': tweets})
+#     def get(self, request):
+#         tweets = Tweet.objects.all().order_by('-creation_date')
+#         return render(request, 'twitter/index.html', {'tweets': tweets})
 
 class RegisterView(View):
     form_class = forms.UserRegisterForm
